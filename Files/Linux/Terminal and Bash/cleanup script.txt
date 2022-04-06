@@ -1,0 +1,5 @@
+#!/bin/bash
+
+rm -rf /tmp/* && rm -rf /var/tmp/*
+sudo apt-get clean -y
+rm -rf /home/sysadmin/.cache/thumbnails/*

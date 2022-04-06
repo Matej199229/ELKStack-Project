@@ -1,0 +1,38 @@
+#!/bin/bash
+
+#mkdir ~/testdir> /dev/null
+echo -e "\n777 Files:" >> ~/testdir/sys_info.txt
+sudo find / -type f -perm 777 >> ~/testdir/sys_info.txt
+ps aux | awk {'print $1, $2, $3, $4, $11'} | head >> ~/testdir/sys_info.txt
+
+echo -e "A quick system update for today:\n" >> ~/testdir/sys_info.txt
+date >> ~/testdir/sys_info.txt
+echo -e "Machine type info:\n" >> ~/testdir/sys_info.txt
+echo $MACHTYPE >> ~/testdir/sys_info.txt
+echo -e "Uname info for this machine:\n" >> ~/testdir/sys_info.txt
+uname >> ~/testdir/sys_info.txt
+echo -e "This machine's IP address is:\n" >> ~/testdir/sys_info.txt
+ifconfig -a | head -10 | tail -1 >> ~/testdir/sys_info.txt
+echo -e "The hostname of the machine is:\n" >> ~/testdir/sys_info.txt
+echo $HOSTNAME >> ~/testdir/sys_info.txt
+echo " " >> ~/testdir/sys_info.txt
+echo -e "DNS info:\n $(cat /etc/resolv.conf)" >> ~/testdir/sys_info.txt
+echo " " >> ~/testdir/sys_info.txt
+echo -e "Memory info:\n" >> ~/testdir/sys_info.txt
+free -mh >> ~/testdir/sys_info.txt
+echo " " >> ~/testdir/sys_info.txt
+echo -e "CPU info:\n $(cat /proc/cpuinfo)" >> ~/testdir/sys_info.txt
+echo " " >> ~/testdir/sys_info.txt
+echo -e "Disk usage info:\n" >> ~/testdir/sys_info.txt
+du -h >> ~/testdir/sys_info.txt
+echo " " >> ~/testdir/sys_info.txt
+echo -e "Who is loggeed on this machine currently:\n" >> ~/testdir/sys_info.txt
+w >> ~/testdir/sys_info.txt
+
+#Variables
+files=('/etc/shadow' '/etc/passwd')
+
+for file in  ${files[@]};
+do
+sudo ls -l $file >> ~/testdir/sys_info.txt
+done
