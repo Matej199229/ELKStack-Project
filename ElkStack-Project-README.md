@@ -103,3 +103,101 @@ SSH into the control node and follow the steps below:
 Command the user will need to run to download the playbook, update the files, etc._
 
 curl (url of page in github where install-elk.yml playbook is located) and then ansible-playbook install-elk.yml to run the playbook.
+
+Kibana Investigation
+
+Questions:
+
+_In the last 7 days, how many unique visitors were located in India?_
+
+59
+
+
+_In the last 24 hours, of the visitors from China, how many were using Mac OSX?_
+
+8
+
+
+_In the last 2 days, what percentage of visitors received 404 errors? How about 503 errors?_
+
+
+-404 errors 0%
+-503 errors 25%
+
+_In the last 7 days, what country produced the majority of the traffic on the website?_
+
+China with 310 web logs count.
+
+
+_Of the traffic that's coming from that country, what time of day had the highest amount of activity?_
+
+13:00 (1pm)
+
+
+_List all the types of downloaded files that have been identified for the last 7 days, along with a short description of each file type (use Google if you aren't sure about a particular file type)._
+
+-css (Short for Cascading Style Sheet used in cunjuction with HTML to describe how HTML elements are displayed on a page)
+-deb (debian software package used mainly in Unix operating systems)
+-gz (archive file compressed by the standard GNU zip (gzip) compression algorithm used in Linux OS for file compression)
+-rpm (installation package used in Unix based OS to installs various programs)
+-zip (another archive file format that supports lossless data compression in both Linux and Windows OS)
+
+_Look at the chart that shows Unique Visitors Vs. Average Bytes_
+
+_Locate the time frame in the last 7 days with the most amount of bytes (activity)._
+
+2022-04-03 21:00 15,709 bytes. The thing that is starnge here is that ALL of this activity came from one single user apparently.
+
+_What is the timestamp for this event?_
+
+22:55
+
+_What kind of file was downloaded?_
+
+.rpm file
+
+_From what country did this activity originate?_
+
+India
+
+_What HTTP response codes were encountered by this visitor?_
+
+HTTP 200 (OK success code)
+
+
+_What is the source IP address of this activity?_
+
+35.143.166.159
+
+_What are the geo coordinates of this activity?_
+
+{ "lat": 43.34121, "lon": -73.6103075 }
+
+_What OS was the source machine running?_
+
+Windows 8
+
+_What is the full URL that was accessed?_
+
+artifacts.elastic.co
+
+_From what website did the visitor's traffic originate?_
+
+Facebook.com
+
+
+_What do you think the user was doing?_
+
+The user used a Mozilla/Safari/Chrome web browser to access the website artifacts.elastic.co from their Windows 8 OS. The user's public IP is 35.143.166.159 based in India. The user apparently downloaded the metricbeat-6.3.2-i686.rpm linux file from the website.
+
+_Was the file they downloaded malicious? If not, what is the file used for?_
+
+The file may not have necessarily been malicious. The file is metricbeat-6.3.2-i686.rpm which is used for monitoring system metrics so this could have just been used by a sysadmin for example.
+
+_Is there anything that seems suspicious about this activity?_
+
+Why did the traffic originate from Facebook? Is Facebook really the proper website to post metricbeat package download links?
+
+_Is any of the traffic you inspected potentially outside of compliance guidlines?_
+
+Since it is probably not within compliance guidelines to use Facebook as a site to use to look for system monitoring software links like metricbeat, this user should be monitored further to see if he/she perfroms further suspicious activities.
