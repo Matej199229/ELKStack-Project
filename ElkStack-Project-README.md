@@ -146,7 +146,7 @@ _Look at the chart that shows Unique Visitors Vs. Average Bytes_
 
 _Locate the time frame in the last 7 days with the most amount of bytes (activity)._
 
-2022-04-03 21:00 15,709 bytes. The thing that is starnge here is that ALL of this activity came from one single user apparently.
+2022-04-03 21:00 15,709 bytes. The thing that is strange here is that ALL of this activity came from a single user apparently and it was the largest activity by bytes out of ALL of them.
 
 _What is the timestamp for this event?_
 
